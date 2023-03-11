@@ -19,7 +19,7 @@ app.get('/',async(req,res)=>{
 
 app.get('/products',async (req,res)=>{
     if(Product){
-        res.send("Danh sach san pham");
+        res.send("Danh sach san pham ne");
         res.json(Product);
     }else{
         res.send("Error");
