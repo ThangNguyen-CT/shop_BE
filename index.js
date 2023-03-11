@@ -13,13 +13,13 @@ mongoose
     console.log(err);
   });
 
-app.get('/',async(req,res)=>{
-    res.send({title : 'Products ne'})
+app.get('/',async (req,res)=>{
+    res.send({title : 'Products'})
 });
 
 app.get('/products',async (req,res)=>{
     if(Product){
-        res.send("Danh sach san pham ne");
+        res.send({title : 'List Products'})
         res.json(Product);
     }else{
         res.send("Error");
