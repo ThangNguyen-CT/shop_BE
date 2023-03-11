@@ -4,7 +4,9 @@ const mongoose = require('mongoose');
 const Product = require('./models/Product')
 const app = express();
 const port = process.env.port || 3000;
+const cors = require("cors");
 
+app.use(cors());
 mongoose.set('strictQuery', false);
 mongoose
   .connect(process.env.MONGO_URL)
