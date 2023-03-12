@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const Product = require('./models/Product')
 const app = express();
 const port = process.env.port || 3000;
 const cors = require("cors");
@@ -22,5 +21,5 @@ mongoose
 route(app);
 
 app.listen(process.env.PORT || 3000, () => {
-    console.log(`Backend server is running in locallhost:${port}`);
+    console.log(`Backend server is running in http://locallhost:${port}`);
 });
