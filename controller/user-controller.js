@@ -42,7 +42,8 @@ class user{
             
             originalPassword !== inputPassword && res.status(401).json("Wrong Password");
       
-           res.status(200).json(req.body);
+            const { password, ...others } = user._doc;  
+            res.status(200).json({...others});
     
         }catch(error){
             console.log(error);
