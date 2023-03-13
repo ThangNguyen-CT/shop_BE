@@ -42,7 +42,7 @@ class user{
             
             originalPassword !== inputPassword && res.status(401).json("Wrong Password");
       
-           res.status(200).json(req.body.username);
+           res.status(200).json(req.body);
     
         }catch(error){
             console.log(error);
