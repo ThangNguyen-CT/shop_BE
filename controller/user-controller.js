@@ -53,7 +53,12 @@ class user{
             const data = await User.findByIdAndUpdate( 
                 req.params.id,
                 {
-                  $set: req.body,
+                    username: req.body.username,
+                    email: req.body.email,
+                    password: CryptoJS.AES.encrypt(
+                        req.body.password,
+                        process.env.PASS_SEC
+                    ).toString(),
                 },
                 { new: true }
             );
