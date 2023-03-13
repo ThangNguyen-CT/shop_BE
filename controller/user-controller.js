@@ -42,7 +42,7 @@ class user{
             
             originalPassword !== inputPassword && res.status(401).json("Wrong Password");
       
-           res.status(200).json("Đăng nhập thành công");
+           res.status(200).json(req.body.username);
     
         }catch(error){
             console.log(error);
