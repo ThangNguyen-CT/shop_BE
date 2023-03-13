@@ -9,7 +9,7 @@ class user{
             console.log(error);
         }
     }
-    async adddata(req,res){
+    async dangky(req,res){
         try {
             const data = new User({
                 username: req.body.username,
@@ -23,6 +23,28 @@ class user{
             const newdata = await data.save();
             res.status(200).json(newdata);
         } catch (error) {
+            console.log(error);
+        }
+    }
+    async dangnhap(req,res){
+        try{
+            const user = await User.findOne({ username: req.body.username });
+            if (!user) {
+              res.status(404).json("Incorrect username");
+            }
+            const hashedPassword = CryptoJS.AES.decrypt(
+                user.password,
+                process.env.PASS_SEC
+            );
+            const originalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
+    
+            const inputPassword = req.body.password;
+            
+            originalPassword !== inputPassword && res.status(401).json("Wrong Password");
+      
+           res.status(200).json("Đăng nhập thành công");
+    
+        }catch(error){
             console.log(error);
         }
     }
