@@ -8,6 +8,14 @@ class Product{
             console.log(error);
         }
     }
+    async getone(req,res){
+        try {
+            const data = await Products.findById(req.params.id);
+            res.status(200).json(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
     async adddata(req,res){
         try {
             const data = new Products(req.body);
