@@ -51,18 +51,7 @@ class user{
     }
     async updatedata(req,res){
         try {
-            const data = await User.findByIdAndUpdate( 
-                req.params.id,
-                {
-                    username: req.body.username,
-                    email: req.body.email,
-                    password: CryptoJS.AES.encrypt(
-                        req.body.password,
-                        process.env.PASS_SEC
-                    ).toString(),
-                },
-                { new: true }
-            );
+            const data = await User.findByIdAndUpdate(req.params.id);
             res.status(200).json(data);
         } catch (error) {
             console.log(error);
