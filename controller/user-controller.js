@@ -51,7 +51,14 @@ class user{
     }
     async updatedata(req,res){
         try {
-            const data = await User.findByIdAndUpdate(req.params.id);
+            const data = await User.findByIdAndUpdate( 
+                req.params.id,
+                {
+                    username: req.body.username,
+                    email: req.body.email
+                },
+                { new: true }
+            );
             res.status(200).json(data);
         } catch (error) {
             console.log(error);
