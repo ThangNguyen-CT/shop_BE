@@ -6,5 +6,5 @@ router.get('/find/:userId',cart.getdata);
 router.post('/add',cart.adddata);
 router.get('/all',cart.getall);
 router.put('/up/:id',cart.updatedata);
-router.delete('/del/:userid',cart.deletedata);
+router.delete('/del/:id',cart.deletedata);
 module.exports = router;
