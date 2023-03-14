@@ -41,7 +41,7 @@ class cart{
     }
     async deletedata(req,res){
         try {
-            await Cart.findById( req.params.id);
+            await Cart.findByIdAndDelete(req.params.id);
             res.status(200).json("Cart has been deleted...");
         } catch (error) {
             console.log(error);
